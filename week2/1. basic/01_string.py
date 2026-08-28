@@ -43,7 +43,16 @@ def is_palindrome(s):
     # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식
     pass
     
-    #return False
+    clean_s = ""
+
+    for i in s:
+        if i.isalnum():
+            clean_s += i.lower()
+
+    if clean_s == clean_s[::-1]:
+        return True
+    else:
+        return False
 
 # 테스트 케이스
 if __name__ == "__main__":
