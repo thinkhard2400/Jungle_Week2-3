@@ -49,7 +49,13 @@ def rotate_matrix_90(matrix):
     # TODO: 원본 배열의 각 요소를 회전된 위치에 배치하세요
     # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
     pass
-    
+    size = len(matrix)
+    rotated = [[0 for _ in range(size)] for _ in range(size)]
+
+    for i in range(size):
+        for j in range(size):
+            rotated[j][size-1-i] = matrix[i][j]
+
     return rotated
 
 def print_matrix(matrix):
