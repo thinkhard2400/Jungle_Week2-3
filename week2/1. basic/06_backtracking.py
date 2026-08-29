@@ -170,6 +170,15 @@ def combinations(n: int, k: int) -> list:
             # current_combination.pop()
 
     # 처음 호출: 시작 숫자는 1, 지금까지 고른 숫자는 비어 있음
+
+        if len(current_combination) == k:
+            result.append(list(current_combination))
+            return
+
+        for num in range(start, n+1):
+            current_combination.append(num)
+            backtrack(num+1, current_combination)
+            current_combination.pop()
     backtrack(1, [])
     return result
 
