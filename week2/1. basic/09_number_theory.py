@@ -39,6 +39,13 @@ def gcd(a, b):
     # recursive를 이용 
     pass
 
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+
+    
 def gcd_iterative(a, b):
     """
     반복문을 사용한 최대공약수 계산
@@ -53,6 +60,16 @@ def gcd_iterative(a, b):
     # b가 0이 될 때까지 반복
     pass
 
+    if a > b:
+        val = b
+    else:
+        val = a
+
+    while (a % val) != 0 or (b % val) != 0:
+        val -= 1
+
+    return val
+
 def lcm(a, b):
     """
     최소공배수 계산
@@ -65,6 +82,16 @@ def lcm(a, b):
     """
     # TODO: LCM 계산
     pass
+
+    if a > b:
+        value = a
+    else:
+        value = b
+
+    while (value % a) != 0 or (value % b) != 0:
+        value += 1
+
+    return value
 
 def extended_gcd(a, b):
     """
@@ -83,6 +110,16 @@ def extended_gcd(a, b):
     # 역추적하며 x, y 계산
     pass
 
+    if b == 0:
+        return a, 1, 0
+
+    g, x_prime, y_prime = extended_gcd(b, a % b)
+    x = y_prime
+    y = x_prime - (a // b) * y_prime
+    
+    return g, x, y
+
+
 def is_prime(n):
     """
     소수 판별
@@ -98,6 +135,15 @@ def is_prime(n):
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
     # 3부터 sqrt(n)까지 홀수만 확인
     pass 
+
+    value = 2
+    while (n % value) != 0:
+        value += 1
+
+    if value == n:
+        return True
+    else:
+        return False
 
 # 테스트 케이스
 if __name__ == "__main__":
