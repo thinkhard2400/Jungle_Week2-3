@@ -50,6 +50,14 @@ def find_max_divide_conquer(arr, left, right):
     # TODO: 둘 중 큰 값 반환
     pass
 
+    mid = (left + right) // 2
+    if left == right:
+        return arr[left]
+    else:
+        left_max = find_max_divide_conquer(arr, left, mid)
+        right_max = find_max_divide_conquer(arr, mid+1, right)
+        return max(left_max, right_max)
+
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
@@ -71,5 +79,3 @@ if __name__ == "__main__":
     result3 = find_max_divide_conquer(arr3, 0, len(arr3) - 1)
     print(f"배열: {arr3}")
     print(f"최댓값: {result3}")
-
-
