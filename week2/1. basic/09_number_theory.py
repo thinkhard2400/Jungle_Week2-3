@@ -1,114 +1,35 @@
-"""
-[정수론 - 최대공약수(GCD)와 최소공배수(LCM)]
-
-문제 설명:
-- 두 정수의 최대공약수(GCD)와 최소공배수(LCM)를 구합니다.
-- 유클리드 호제법을 사용하여 GCD를 효율적으로 계산합니다.
-- GCD를 이용하여 LCM을 계산합니다.
-
-입력:
-- a, b: 두 개의 양의 정수
-
-출력:
-- GCD: 최대공약수
-- LCM: 최소공배수
-
-예제:
-입력: a = 48, b = 18
-출력: 
-  GCD = 6
-  LCM = 144
-
-힌트:
-- 유클리드 호제법: gcd(a, b) = gcd(b, a % b)
-- LCM 공식: lcm(a, b) = (a × b) / gcd(a, b)
-"""
-
 def gcd(a, b):
-    """
-    유클리드 호제법을 사용한 최대공약수 계산
-    
-    Args:
-        a, b: 두 양의 정수
-    
-    Returns:
-        최대공약수
-    """
-    # TODO: 유클리드 호제법 구현
-    # base case: b가 0이면 a 반환
-    # recursive를 이용 
-    pass
 
-    if b == 0:
+    if b != 0:
+        return gcd(b,a%b)
+    else:
         return a
+
+def gcd_iterative(a,b):
+
+    if a>b:
+        std = b
     else:
-        return gcd(b, a%b)
+        std = a
 
+    while (a%std) != 0 or (b%std) != 0:
+        std -= 1
 
-    
-def gcd_iterative(a, b):
-    """
-    반복문을 사용한 최대공약수 계산
-    
-    Args:
-        a, b: 두 양의 정수
-    
-    Returns:
-        최대공약수
-    """
-    # TODO: 반복문으로 구현
-    # b가 0이 될 때까지 반복
-    pass
+    return std
 
-    if a > b:
-        val = b
+def lcm(a,b):
+
+    if a>b:
+        std = a
     else:
-        val = a
+        std = b
 
-    while (a % val) != 0 or (b % val) != 0:
-        val -= 1
+    while (std%a) != 0 or (std%b) != 0:
+        std += 1
 
-    return val
+    return std
 
-def lcm(a, b):
-    """
-    최소공배수 계산
-    
-    Args:
-        a, b: 두 양의 정수
-    
-    Returns:
-        최소공배수
-    """
-    # TODO: LCM 계산
-    pass
-
-    if a > b:
-        value = a
-    else:
-        value = b
-
-    while (value % a) != 0 or (value % b) != 0:
-        value += 1
-
-    return value
-
-def extended_gcd(a, b):
-    """
-    확장 유클리드 호제법
-    ax + by = gcd(a, b)를 만족하는 x, y를 찾음
-    
-    Args:
-        a, b: 두 양의 정수
-    
-    Returns:
-        (gcd, x, y) 튜플
-    """
-    # TODO: 확장 유클리드 호제법 구현
-    # base case: b가 0이면 (a, 1, 0) 반환    
-    # recursive case
-    # 역추적하며 x, y 계산
-    pass
+def extended_gcd(a,b):
 
     if b == 0:
         return a, 1, 0
@@ -121,26 +42,13 @@ def extended_gcd(a, b):
 
 
 def is_prime(n):
-    """
-    소수 판별
-    
-    Args:
-        n: 판별할 양의 정수
-    
-    Returns:
-        소수이면 True, 아니면 False
-    """
-    # TODO: 소수 판별 구현
-    # n이 2보다 작으면 False
-    # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
-    # 3부터 sqrt(n)까지 홀수만 확인
-    pass 
 
-    value = 2
-    while (n % value) != 0:
-        value += 1
+    val = 2
 
-    if value == n:
+    while (n > val) and (n%val) != 0:
+        val += 1
+
+    if val == n:
         return True
     else:
         return False
