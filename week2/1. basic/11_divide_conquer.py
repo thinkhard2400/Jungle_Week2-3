@@ -1,62 +1,17 @@
-"""
-[분할 정복 - 배열의 최댓값 찾기]
-
-문제 설명:
-- 분할 정복(Divide and Conquer) 방식으로 배열의 최댓값을 찾습니다.
-- 배열을 반으로 나누고, 각 부분의 최댓값을 구한 후 비교합니다.
-
-입력:
-- arr: 정수 배열
-- left: 시작 인덱스
-- right: 끝 인덱스
-
-출력:
-- 배열의 최댓값
-
-예제:
-입력: [3, 5, 1, 8, 2, 9, 4]
-출력: 9
-
-힌트:
-- Base case: left == right일 때 arr[left] 반환
-- 배열을 반으로 나누어 재귀 호출
-- 왼쪽과 오른쪽의 최댓값 중 큰 값 반환
-"""
-
 def find_max_divide_conquer(arr, left, right):
-    """
-    분할 정복으로 최댓값 찾기
-    
-    Args:
-        arr: 배열
-        left: 시작 인덱스
-        right: 끝 인덱스
-    
-    Returns:
-        최댓값
-    """
-    # TODO: base case - 원소가 하나면 그 값 반환
-    pass
-    
-    # TODO: 중간 지점 계산
-    pass
-    
-    # TODO: 왼쪽 절반의 최댓값
-    pass
-        
-    # TODO: 오른쪽 절반의 최댓값
-    pass
-    
-    # TODO: 둘 중 큰 값 반환
-    pass
 
-    mid = (left + right) // 2
-    if left == right:
+    if arr[left] == arr[right]:
         return arr[left]
+
+    mid = (left+right) // 2
+
+    left_max = find_max_divide_conquer(arr, left, mid)
+    right_max = find_max_divide_conquer(arr, mid+1, right)
+
+    if left_max < right_max:
+        return right_max
     else:
-        left_max = find_max_divide_conquer(arr, left, mid)
-        right_max = find_max_divide_conquer(arr, mid+1, right)
-        return max(left_max, right_max)
+        return left_max
 
 # 테스트 케이스
 if __name__ == "__main__":
