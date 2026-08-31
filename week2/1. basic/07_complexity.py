@@ -135,5 +135,3 @@ if __name__ == "__main__":
     print("방법3 - Hash:")
     print("  시간: O(n), 공간: O(n)")
     print("  특징: 가장 빠르지만 메모리 사용")
-
-
