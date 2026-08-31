@@ -1,65 +1,13 @@
-"""
-[배열 - 2차원 배열 회전]
-
-문제 설명:
-- N x N 크기의 2차원 배열을 시계방향으로 90도 회전시킵니다.
-- 배열의 인덱스 변환 규칙을 이해하는 문제입니다.
-
-입력:
-- matrix: N x N 크기의 2차원 리스트
-
-출력:
-- 시계방향으로 90도 회전된 2차원 리스트
-
-예제:
-입력:
-[
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-출력:
-[
-    [7, 4, 1],
-    [8, 5, 2],
-    [9, 6, 3]
-]
-
-힌트:
-- 회전 후 위치: (i, j) -> (j, n-1-i)
-- 새로운 배열을 만들어 값을 채워넣으세요
-"""
-
 def rotate_matrix_90(matrix):
-    """
-    2차원 배열을 시계방향으로 90도 회전
-    
-    Args:
-        matrix: N x N 2차원 리스트
-    
-    Returns:
-        회전된 2차원 리스트
-    """
     n = len(matrix)
-    
-    # TODO: n x n 크기의 새로운 배열을 생성하세요 (0으로 초기화)
-    pass
-        
-    # TODO: 원본 배열의 각 요소를 회전된 위치에 배치하세요
-    # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
-    pass
     size = len(matrix)
     rotated = [[0 for _ in range(size)] for _ in range(size)]
-
     for i in range(size):
         for j in range(size):
             rotated[j][size-1-i] = matrix[i][j]
-
     return rotated
 
 def print_matrix(matrix):
-    """배열을 보기 좋게 출력하는 헬퍼 함수"""
     for row in matrix:
         print(row)
 
