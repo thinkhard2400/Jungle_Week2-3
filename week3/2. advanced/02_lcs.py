@@ -38,3 +38,4 @@ if __name__ == "__main__":
 
     print("[테스트 6] 두 LCS 후보가 길이가 같은 경우")
     print(f'  s1="ABCBDAB", s2="BDCABA" -> LCS 길이={lcs_length("ABCBDAB", "BDCABA")}')
+
